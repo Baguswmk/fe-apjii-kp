@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Kategori from "./components/Kategori.jsx";
 import Login from "./components/Login.jsx";
 import "./App.css";
-
 function App() {
   return (
     <Router>

@@ -44,9 +44,9 @@ const Navbar = () => {
               }}
             >
               <Link to="/" className={`text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline  `}>
-                <img src={isFixed ? logo : logoPutih} alt="Logo-APJII" className="h-20" />
+                <img src={isFixed ? logo : logoPutih} alt="Logo-APJII" className="h-20  max-md:w-40 max-md:h-20" />
               </Link>
-              <button className="rounded-lg lg:hidden focus:outline-none focus:shadow-outline" onClick={() => setIsOpen(!isOpen)}>
+              <button className={`rounded-lg lg:hidden focus:outline-none focus:shadow-outline ${isFixed ? "text-[#215385]" : ""}`} onClick={() => setIsOpen(!isOpen)}>
                 <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
                   {isOpen ? (
                     <path
@@ -63,7 +63,7 @@ const Navbar = () => {
             <animated.nav
               className={`flex-col flex-grow lg:flex ${isOpen ? "flex" : "hidden"} ${isOpen ? "absolute" : "unset"} ${isOpen ? "z-[100]" : "z-0"}  ${isOpen ? "mt-[100px]" : "mt-0"} ${isOpen ? "w-full" : ""} ${
                 isFixed ? "text-[#215385]" : ""
-              } font-inter pb-4 lg:pb-0 lg:justify-end lg:flex-row`}
+              }   ${isFixed ? "ml-[-16px] bg-white" : "ml-[-16px] bg-[#215385] "} font-inter pb-4 lg:pb-0 lg:justify-end lg:flex-row`}
               style={{
                 ...verticalSprings,
               }}
@@ -72,19 +72,19 @@ const Navbar = () => {
                 to="/"
                 className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg uppercase dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 lg:mt-0 lg:ml-4  hover:underline hover:transition hover:ease-in-out hover:delay-80  focus:underline"
               >
-                <p className="mt-2">Beranda</p>
+                <p className={`mt-2  ${isFixed ? "w-[80%] ml-5" : "w-[80%] ml-5"} `}>Beranda</p>
               </Link>
               <Link
                 to="/Kategori"
                 className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg uppercase dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 lg:mt-0 lg:ml-4  hover:underline focus:underline"
               >
-                <p className="mt-2">Kategori 1</p>
+                <p className={`mt-2 mr-5 ${isFixed ? "w-[80%] ml-5 " : "w-[80%] ml-5"}`}>Kategori 1</p>
               </Link>
               <Link
                 to="/Kategori"
                 className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg uppercase dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 lg:mt-0 lg:ml-4  hover:underline focus:underline"
               >
-                <p className="mt-2">Kategori X</p>
+                <p className={`mt-2 w-full mr-5 ${isFixed ? "w-[80%] ml-5" : "w-[80%] ml-5"}`}>Kategori X</p>
               </Link>
               <div
                 className={`nav-sosmed menu-horizontal px-5 mr-3 lg:flex lg:justify-center`}

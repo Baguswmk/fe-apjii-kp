@@ -18,11 +18,11 @@ const SlickCarousel = ({ texts, desc }) => {
   };
   const combinedData = texts.map((text, index) => ({ text, desc: desc[index] }));
   return (
-    <div className="w-1/2 text-xl text-center mt-8 text-white">
+    <div className="w-1/2 text-xl text-center mt-8 text-white max-md:w-[80%]">
       <Slider {...settings}>
         {combinedData.map((item, index) => (
           <div key={index}>
-            <h1>{item.text}</h1>
+            <h1 className="text-4xl">{item.text}</h1>
             <p>{item.desc}</p>
           </div>
         ))}

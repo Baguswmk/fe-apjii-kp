@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Kategori from "./components/Kategori.jsx";
 import Login from "./components/Login.jsx";
+import DetailArtikel from "./components/DetailArtikel.jsx";
 import "./App.css";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/kategori" element={<Kategori />} />
           <Route path="/login" element={<Login />} />
+          <Route exact path="/artikel/:id" component={DetailArtikel} />
         </Routes>
       </div>
     </Router>

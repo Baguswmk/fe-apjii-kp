@@ -51,6 +51,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.slick-dots li button {
+  color: white;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: white;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -92,3 +99,5 @@
     transform: skewY(0) rotate(-6deg);
   }
 }
+
+

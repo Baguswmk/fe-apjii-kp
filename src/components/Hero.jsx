@@ -17,9 +17,9 @@ const Hero = () => {
     to: { y: 0 },
   });
   return (
-    <div className="home relative bg-gradient-to-b mb-44 " style={{ backgroundImage: "linear-gradient(to bottom, #215385, #000000)", height: "calc(100vh - 105px)" }}>
+    <div className="home relative bg-gradient-to-b mb-44  " style={{ backgroundImage: "linear-gradient(to bottom, #215385, #000000)", height: "calc(100vh - 105px)" }}>
       <motion.div
-        className="home-bg absolute right-0 bottom-0 z-0 mr-[51px]"
+        className="home-bg absolute right-0 bottom-0 z-0 mr-[51px] max-md:mr-[50px]"
         animate={{ x: 50 }}
         transition={{
           ease: "linear",
@@ -40,18 +40,18 @@ const Hero = () => {
       >
         <img src={apjii} alt="image-globe" className="w-full max-h-[40rem]" />
       </animated.div>
-      <div className="home-content relative z-10 p-5 h-[85%] flex items-center justify-start  ">
+      <div className="home-content relative z-10 p-5 h-[85%] flex items-center justify-start max-md:p-0  max-md:h-[55%]  ">
         <animated.div
-          className="home-title font-bold text-white ml-10 flex-col"
+          className="home-title font-bold text-white ml-10 flex-col max-md:ml-0 max-md:max-w-[200px]"
           style={{
             ...horizontalSprings,
           }}
         >
-          <p className="font-bold text-5xl mb-2">APJII Directory</p>
-          <p className="font-normal text-4xl">
+          <p className="font-bold text-5xl mb-2 max-md:text-3xl ">APJII Directory</p>
+          <p className="font-normal text-4xl max-md:text-2xl">
             <span className="font-bold">Public</span> File Sharing
           </p>
-          <p className="font-normal text-4xl">
+          <p className="font-normal text-4xl max-md:text-2xl">
             <span className="font-bold">Directory</span> for Your Convinience
           </p>
           <Link to="/login">

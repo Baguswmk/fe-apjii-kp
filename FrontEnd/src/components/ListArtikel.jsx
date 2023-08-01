@@ -11,12 +11,13 @@ const ListArtikel = () => {
 
   const getTanggal = (createdAtString) => {
     const createdAtDate = new Date(createdAtString);
-    return createdAtDate.getDate();
+    const tanggal = createdAtDate.getDate();
+    return tanggal < 10 ? "0" + tanggal : tanggal.toString();
   };
 
   const getBulanTahun = (createdAtString) => {
     const createdAtDate = new Date(createdAtString);
-    const bulan = new Intl.DateTimeFormat("en-US", { month: "long" }).format(createdAtDate);
+    const bulan = new Intl.DateTimeFormat("id-ID", { month: "short" }).format(createdAtDate);
     const tahun = createdAtDate.getFullYear();
     return `${bulan} ${tahun}`;
   };

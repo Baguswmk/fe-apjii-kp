@@ -1,9 +1,42 @@
 import Footer from "./Footer.jsx";
-import bgLogin from "../img/bg-login.png";
-import { Link } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
+import bgLogin from "../img/bg-login.png";
+import React, { useState } from "react";
+import { useNavigate} from "react-router-dom";
+import { loginUser } from "../services/Api";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    loginUser(formData)
+      .then((response) => {
+        // Proses login berhasil, misalnya menyimpan token di local storage
+        // atau melakukan navigasi ke halaman beranda
+        // ...
+        // Contoh:
+        localStorage.setItem("accessToken", response.data.token);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        // Proses login gagal, tampilkan pesan error atau tindakan lain
+        console.error("Error logging in:", error);
+      });
+  };
   return (
     <>
     {/* style={{ height: "calc(100vh - 160px)" }} */}
@@ -19,18 +52,21 @@ const Login = () => {
             <p className="mt-3">To Start Your Session</p>
           </div>
           <div className="login-form flex flex-col mt-5">
+          <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm mb-2 w-[42%] text-black text-center">
                 Username
               </label>
               <div className="relative">
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="username"
+                  id="username"
+                  name="username"
                   className="py-3 px-4 block w-[70%] m-auto border border-black border-solid rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:text-black"
                   required
-                  aria-describedby="email-error"
+                  value={formData.username}
+                  onChange={handleChange}
+                  aria-describedby="username-error"
                   placeholder="Masukkan username"
                 />
                 <div className="hidden absolute inset-y-0 right-0 items-center pointer-events-none pr-3">
@@ -59,6 +95,8 @@ const Login = () => {
                   name="password"
                   className="py-3 px-4 block w-[70%] m-auto border border-black border-solid rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:text-black"
                   required
+                  value={formData.password}
+                  onChange={handleChange}
                   aria-describedby="password-error"
                   placeholder="Masukkan password"
                 />
@@ -72,9 +110,10 @@ const Login = () => {
                 8+ characters required
               </p>
             </div>
-            <Link to="/login">
-              <button className="rounded-full bg-[#215385] text-white w-40 h-10 mt-5">LOGIN</button>
-            </Link>
+         
+              <button type="submit" className="rounded-full bg-[#215385] text-white w-40 h-10 mt-5">LOGIN</button>
+       
+            </form>
           </div>
         </div>
       </div>

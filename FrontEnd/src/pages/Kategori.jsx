@@ -1,5 +1,5 @@
-import Carousel from "./Carousel";
-import ListMateri from "./ListArtikel";
+import Carousel from "../components/Carousel";
+import ListMateri from "../components/ListArtikel";
 
 const Kategori = () => {
   const texts = ["004", "002"];

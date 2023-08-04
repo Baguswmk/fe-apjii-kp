@@ -25,15 +25,10 @@ const Login = () => {
     event.preventDefault();
     loginUser(formData)
       .then((response) => {
-        // Proses login berhasil, misalnya menyimpan token di local storage
-        // atau melakukan navigasi ke halaman beranda
-        // ...
-        // Contoh:
         localStorage.setItem("accessToken", response.data.token);
         navigate("/dashboard");
       })
       .catch((error) => {
-        // Proses login gagal, tampilkan pesan error atau tindakan lain
         console.error("Error logging in:", error);
       });
   };
